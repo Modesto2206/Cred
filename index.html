@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Painel do Mentor | Crédito Consignado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --gold:#FFBC00;
+    --dark:#0b0b0b;
+    --glass:rgba(0,0,0,0.65);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+        url("bg.png") center/cover no-repeat fixed;
+    color:#fff;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+/* ===== HEADER ===== */
+header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+header img{
+    width:130px;
+    margin-bottom:20px;
+}
+
+header h1{
+    font-size:2.8rem;
+    color:var(--gold);
+    letter-spacing:1px;
+}
+
+header p{
+    opacity:.85;
+    font-size:1.1rem;
+}
+
+/* ===== GRID ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:var(--glass);
+    border:1px solid rgba(255,188,0,.35);
+    border-radius:20px;
+    padding:35px 25px;
+    text-align:center;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top, rgba(255,188,0,.35), transparent 60%);
+    opacity:0;
+    transition:.4s;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 25px 60px rgba(255,188,0,.25);
+}
+
+/* ===== ICON ===== */
+.card span{
+    font-size:3rem;
+    display:block;
+    margin-bottom:20px;
+    color:var(--gold);
+}
+
+/* ===== TITLE ===== */
+.card h2{
+    font-size:1.4rem;
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+/* ===== TEXT ===== */
+.card p{
+    font-size:.95rem;
+    opacity:.85;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    margin-top:70px;
+    opacity:.6;
+    font-size:.85rem;
+}
+
+/* ===== ANIMATION ===== */
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp .8s forwards;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="fade">
+    <!-- LOGO -->
+    <img src="logo.png" alt="Logo Mentor">
+
+    <h1>Painel do Mentor</h1>
+    <p>Organização estratégica das aulas de Crédito Consignado</p>
+</header>
+
+<section class="grid">
+
+    <!-- INSS -->
+    <div class="card fade" onclick="openDrive('LINK_DRIVE_INSS')">
+        <span>🏦</span>
+        <h2>INSS</h2>
+        <p>Aposentados e pensionistas</p>
+    </div>
+
+    <!-- FORÇAS ARMADAS -->
+    <div class="card fade" onclick="openDrive('https://docs.google.com/presentation/d/1EbZTmD_52GrFD0GliDoYief7P80foiEiQw5zPGsN1vU/edit?slide=id.g3c315653127_0_49#slide=id.g3c315653127_0_49')">
+        <span>🪖</span>
+        <h2>Forças Armadas</h2>
+        <p>Militares ativos e inativos</p>
+    </div>
+
+    <!-- SIAPE -->
+    <div class="card fade" onclick="openDrive('LINK_DRIVE_SIAPE')">
+        <span>🏛️</span>
+        <h2>SIAPE</h2>
+        <p>Servidores públicos federais</p>
+    </div>
+
+    <!-- CLT -->
+    <div class="card fade" onclick="openDrive('LINK_DRIVE_CLT')">
+        <span>📄</span>
+        <h2>CLT</h2>
+        <p>Trabalhadores com carteira assinada</p>
+    </div>
+
+    <!-- FGTS -->
+    <div class="card fade" onclick="openDrive('LINK_DRIVE_FGTS')">
+        <span>💰</span>
+        <h2>FGTS</h2>
+        <p>Antecipação do saque-aniversário</p>
+    </div>
+
+</section>
+
+<footer>
+    © Plataforma interna do mentor — uso exclusivo
+</footer>
+
+</div>
+
+<script>
+function openDrive(link){
+    window.open(link, "_blank");
+}
+
+/* Delay animado */
+document.querySelectorAll('.fade').forEach((el,i)=>{
+    el.style.animationDelay = `${i * 0.15}s`;
+});
+</script>
+
+</body>
+</html>
