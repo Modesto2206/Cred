@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>Painel do Mentor | Crédito Consignado</title>
 
+<!-- ✅ FAVICON -->
+<link rel="icon" type="image/png" href="favicon.png">
+
+<!-- FONTE -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -58,9 +62,16 @@ header{
     margin-bottom:60px;
 }
 
-header img{
-    width:130px;
+/* LOGO COM LINK */
+header a img{
+    width:200px;
     margin-bottom:20px;
+    transition:.3s;
+}
+
+header a img:hover{
+    transform:scale(1.05);
+    filter:drop-shadow(0 0 12px rgba(255,188,0,.6));
 }
 
 header h1{
@@ -170,7 +181,11 @@ footer{
 <div class="container">
 
 <header class="fade">
-    <img src="logo.png" alt="Logo Mentor">
+    <!-- ✅ LOGO COM LINK -->
+    <a href="https://SEU_LINK_AQUI" target="_blank">
+        <img src="logo.png" alt="Logo Mentor">
+    </a>
+
     <h1>Painel do Mentor</h1>
     <p>Organização estratégica das aulas de Crédito Consignado</p>
 </header>
