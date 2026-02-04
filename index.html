@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <title>Painel do Mentor | Crédito Consignado</title>
 
-<!-- FAVICON -->
-<link rel="icon" type="image/png" href="favicon.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -23,11 +20,28 @@
     font-family:'Poppins', sans-serif;
 }
 
+/* ===== VIDEO BACKGROUND ===== */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* ===== OVERLAY ESCURO ===== */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85));
+    z-index:-1;
+}
+
+/* ===== BODY ===== */
 body{
     min-height:100vh;
-    background:
-        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
-        url("bg.png") center/cover no-repeat fixed;
     color:#fff;
 }
 
@@ -145,47 +159,48 @@ footer{
 
 <body>
 
+<!-- 🎥 VIDEO DE FUNDO -->
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="bg-video.mp4" type="video/mp4">
+</video>
+
+<!-- OVERLAY -->
+<div class="overlay"></div>
+
 <div class="container">
 
 <header class="fade">
-    <!-- LOGO -->
-    <img src="Logo.png" alt="Logo Mentor">
-
+    <img src="logo.png" alt="Logo Mentor">
     <h1>Painel do Mentor</h1>
     <p>Organização estratégica das aulas de Crédito Consignado</p>
 </header>
 
 <section class="grid">
 
-    <!-- INSS -->
     <div class="card fade" onclick="openDrive('LINK_DRIVE_INSS')">
         <span>🏦</span>
         <h2>INSS</h2>
         <p>Aposentados e pensionistas</p>
     </div>
 
-    <!-- FORÇAS ARMADAS -->
-    <div class="card fade" onclick="openDrive('https://docs.google.com/presentation/d/1EbZTmD_52GrFD0GliDoYief7P80foiEiQw5zPGsN1vU/edit?slide=id.g3c315653127_0_49#slide=id.g3c315653127_0_49')">
+    <div class="card fade" onclick="openDrive('https://docs.google.com/presentation/d/1EbZTmD_52GrFD0GliDoYief7P80foiEiQw5zPGsN1vU/edit')">
         <span>🪖</span>
         <h2>Forças Armadas</h2>
         <p>Militares ativos e inativos</p>
     </div>
 
-    <!-- SIAPE -->
     <div class="card fade" onclick="openDrive('LINK_DRIVE_SIAPE')">
         <span>🏛️</span>
         <h2>SIAPE</h2>
         <p>Servidores públicos federais</p>
     </div>
 
-    <!-- CLT -->
     <div class="card fade" onclick="openDrive('LINK_DRIVE_CLT')">
         <span>📄</span>
         <h2>CLT</h2>
         <p>Trabalhadores com carteira assinada</p>
     </div>
 
-    <!-- FGTS -->
     <div class="card fade" onclick="openDrive('LINK_DRIVE_FGTS')">
         <span>💰</span>
         <h2>FGTS</h2>
@@ -213,5 +228,3 @@ document.querySelectorAll('.fade').forEach((el,i)=>{
 
 </body>
 </html>
-
-
